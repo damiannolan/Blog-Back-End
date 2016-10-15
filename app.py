@@ -26,4 +26,3 @@ def tasks():
 if __name__ == '__main__':
     app.run(debug=True)
 
-    #curl -i -H "Content-Type: application/json" -X POST -d '{"id":5, "title": "lewl", "description": "hahahha", "done": false}' http://localhost:5000/tasks
