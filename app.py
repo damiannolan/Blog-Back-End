@@ -30,17 +30,7 @@ def delete_person(_id):
     db.test_form.delete_one({'_id': ObjectId(_id)})
     return 'Deleted'
     
-
-'''@app.route('/tasks/<int:task_id>', methods=['DELETE'])
-def delete_task(task_id):
-    task = [task for task in tasks if task['id'] == task_id]
-    if len(task) == 0:
-        abort(404)
-    tasks.remove(task[0])
-    return jsonify({'result': True})
-
-
-@app.route('/tasks/<int:task_id>', methods=['PUT'])
+'''@app.route('/tasks/<int:task_id>', methods=['PUT'])
 def update_task(task_id):
     task = [task for task in tasks if task['id'] == task_id]
     if len(task) == 0:
