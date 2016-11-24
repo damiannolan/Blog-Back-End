@@ -3,6 +3,7 @@ from flask import Flask, request
 import pymongo
 from flask_cors import CORS, cross_origin
 from bson.json_util import dumps
+from bson.objectid import ObjectId
 
 app = Flask(__name__)
 CORS(app)
@@ -21,8 +22,13 @@ def people():
     elif request.method == 'GET': 
         people = []
         for person in db['test_form'].find():
-            people.append(person['content'])
+            people.append(person)
         return dumps(people)
+
+@app.route('/people/delete/<string:_id>', methods=['DELETE'])
+def delete_person(_id):
+    db.test_form.delete_one({'_id': ObjectId(_id)})
+    return 'Deleted'
     
 
 '''@app.route('/tasks/<int:task_id>', methods=['DELETE'])
