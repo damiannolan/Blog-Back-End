@@ -11,22 +11,22 @@ CORS(app)
 client = pymongo.MongoClient()
 db = client.test
 
-@app.route('/people', methods=['GET', 'POST'])
-def people():
+@app.route('/entries', methods=['GET', 'POST'])
+def entries():
     if request.method == 'POST':
         if request.headers['Content-Type'] == 'application/json':
-            person = request.get_json()
-            db.test_form.insert_one(person)
+            entry = request.get_json()
+            db.test_form.insert_one(entry)
             return 'Posted'
 
     elif request.method == 'GET': 
-        people = []
-        for person in db['test_form'].find():
-            people.append(person)
-        return dumps(people)
+        entries = []
+        for entry in db['test_form'].find():
+            entries.append(entry)
+        return dumps(entries)
 
-@app.route('/people/delete/<string:_id>', methods=['DELETE'])
-def delete_person(_id):
+@app.route('/entries/delete/<string:_id>', methods=['DELETE'])
+def delete_entry(_id):
     db.test_form.delete_one({'_id': ObjectId(_id)})
     return 'Deleted'
     
