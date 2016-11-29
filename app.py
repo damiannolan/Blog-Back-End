@@ -48,6 +48,11 @@ def update_task(task_id):
     task[0]['done'] = request.json.get('done', task[0]['done'])
     return jsonify({'task': task[0]})'''
 
+#Added threaded=True to app.run()
+#This solves a problem which occurs when using an angularjs front end with google chrome
+#where requests were taking an abnormal amount of time
+#The problem is discussedon this thread: http://stackoverflow.com/questions/23639355/extremely-long-wait-time-when-loading-rest-resource-from-angularjs/
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, threaded=True)
 
