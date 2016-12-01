@@ -4,26 +4,26 @@ Currently only acts as an endpoint that connects to a mongodb collection with ba
 
 Used a Back End for a 3rd Year Undergraduate project in Data Representation and Querying.
 
-This applications tends to be used in conjunction with a Front End Blogging Application which can 
+This applications intends to be used in conjunction with a Front End Blogging Application which can 
 be found [Here!](https://github.com/seantking/Blog-Front-End)
 
 ## Getting Started
 
 1. Clone
-
-				git clone https://github.com/seantking/Blog-back-end.git
+			
+			git clone https://github.com/seantking/Blog-back-end.git
 
 2. Ensure that Pymongo is installed
-
-				python -m pip install pymongo
+			
+			python -m pip install pymongo
 
 3. Start MongoDB
 
-				mongod
+			mongod
 
-4. Run the application
+4. Start the application
 
-				python app.py
+			python app.py
 
 ### References
 
